@@ -1,10 +1,11 @@
-import './App.css'
+import setupRouter from './routers'
+import Introduce from './pages/introduce/introduce'
 
 function App() {
-
   return (
-    <div className="App">
-      hello word
+    <div className="App grid h-screen w-screen">
+      <div className=''>{Introduce()}</div>
+       {setupRouter()}
     </div>
   )
 }

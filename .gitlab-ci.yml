@@ -24,7 +24,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 variables: 
    username: "1305544590@qq.com"
-   pwd: 'Sonic333'
+   pwd: Sonic333
 
 # 登录到阿里云的镜像仓库 然后 打包推送到阿里云镜像仓库
 
@@ -33,7 +33,7 @@ build-job:       # This job runs in the build stage, which runs first.
   tags: 
   - gitlab-org-docker
   before_script:
-    - docker login --username="$username" --password="$pwd" registry.cn-shanghai.aliyuncs.com
+    - docker login --username="$username" --password-stdin="$pwd" registry.cn-shanghai.aliyuncs.com
   script:
     - docker build -t "blog:$CI_COMMIT_TAG" .
     - docker push "blog:$CI_COMMIT_TAG"

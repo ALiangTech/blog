@@ -33,7 +33,7 @@ build-job:       # This job runs in the build stage, which runs first.
   tags: 
   - gitlab-org-docker
   before_script:
-    - docker login --username="$username" --password-stdin="$pwd" registry.cn-shanghai.aliyuncs.com
+    - echo "$pwd" | docker login --username="$username" --password-stdin registry.cn-shanghai.aliyuncs.com
   script:
     - docker build -t "blog:$CI_COMMIT_TAG" .
     - docker push "blog:$CI_COMMIT_TAG"

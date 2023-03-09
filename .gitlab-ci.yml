@@ -26,6 +26,8 @@ variables:
    username: "1305544590@qq.com"
    pwd: Sonic333
 
+# runner 执行环境 容器
+# runner 执行镜像
 # 登录到阿里云的镜像仓库 然后 打包推送到阿里云镜像仓库
 
 build-job:       # This job runs in the build stage, which runs first.
@@ -33,7 +35,7 @@ build-job:       # This job runs in the build stage, which runs first.
   tags: 
   - gitlab-org-docker
   before_script:
-    - echo "$pwd" | docker login  --username="$username" registry.cn-shanghai.aliyuncs.com --password-stdin
+    - echo "$pwd" | docker login registry.cn-shanghai.aliyuncs.com  --username "$username" --password-stdin
   script:
     - docker build -t registry.cn-shanghai.aliyuncs.com/blog_hj/blog:1.0.0 .
     - docker push registry.cn-shanghai.aliyuncs.com/blog_hj/blog:1.0.0

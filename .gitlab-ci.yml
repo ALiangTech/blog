@@ -27,6 +27,8 @@ variables:
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
+  tags: 
+  - gitlab-org-docker
   before_script:
     - docker login -u "$username" -p "$pwd" registry.cn-shanghai.aliyuncs.com
   script:

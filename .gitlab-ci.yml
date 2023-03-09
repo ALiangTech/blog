@@ -19,7 +19,7 @@
 stages:          # List of stages for jobs, and their order of execution
   - build
 
- variables: 
+variables: 
    username: "1305544590@qq.com"
    pwd: 'Sonic333'
 
